@@ -10,22 +10,21 @@ import java.util.UUID
 @Configuration
 class JdbcConfiguration
 
-@Component
-class RegionBeforeConvertCallback : BeforeConvertCallback<Region> {
-    override fun onBeforeConvert(region: Region): Region {
-        if (region.id == null) {
-            region.id = UUID.randomUUID()
+interface UuidEntity {
+    var id: UUID?
+}
+
+abstract class UuidGeneratingCallback<T : UuidEntity> : BeforeConvertCallback<T> {
+    override fun onBeforeConvert(entity: T): T {
+        if (entity.id == null) {
+            entity.id = UUID.randomUUID()
         }
-        return region
+        return entity
     }
 }
 
 @Component
-class OrganisationBeforeConvertCallback : BeforeConvertCallback<Organisation> {
-    override fun onBeforeConvert(organisation: Organisation): Organisation {
-        if (organisation.id == null) {
-            organisation.id = UUID.randomUUID()
-        }
-        return organisation
-    }
-}
+class RegionBeforeConvertCallback : UuidGeneratingCallback<Region>()
+
+@Component
+class OrganisationBeforeConvertCallback : UuidGeneratingCallback<Organisation>()

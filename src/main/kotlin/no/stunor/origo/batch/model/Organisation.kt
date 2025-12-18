@@ -1,5 +1,6 @@
 package no.stunor.origo.batch.model
 
+import no.stunor.origo.batch.config.UuidEntity
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 import java.sql.Timestamp
@@ -9,7 +10,7 @@ import java.util.UUID
 @Table("organisation")
 data class Organisation (
     @Id
-    var id: UUID? = null,
+    override var id: UUID? = null,
     var eventorId: String = "",
     var eventorRef: String = "",
     var name: String = "",
@@ -20,7 +21,7 @@ data class Organisation (
     var regionId: UUID? = null,
     var contactPerson: String? = null,
     var lastUpdated: Timestamp = Timestamp.from(Instant.now())
-) {
+) : UuidEntity {
     override fun equals(other: Any?): Boolean {
         if (other is Organisation) {
             return this.eventorId == other.eventorId && (this.eventorRef == other.eventorRef)
