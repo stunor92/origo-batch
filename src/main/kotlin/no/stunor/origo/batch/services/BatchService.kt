@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-internal class BatchService {
+class BatchService {
     private val log = LoggerFactory.getLogger(this.javaClass)
 
     @Autowired
