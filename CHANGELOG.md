@@ -1,5 +1,21 @@
 # Changelog
 
+## [4.0.0](https://github.com/stunor92/origo-batch/compare/v3.0.0...v4.0.0) (2025-12-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** bump org.springframework.boot:spring-boot-starter-parent from 3.5.7 to 4.0.1 ([#96](https://github.com/stunor92/origo-batch/issues/96))
+
+### Features
+
+* enforce conventional commits specification ([#88](https://github.com/stunor92/origo-batch/issues/88)) ([e1419ad](https://github.com/stunor92/origo-batch/commit/e1419ada903fe5a170d644248bf212ee730ab765))
+
+
+### Build System
+
+* **deps:** bump org.springframework.boot:spring-boot-starter-parent from 3.5.7 to 4.0.1 ([#96](https://github.com/stunor92/origo-batch/issues/96)) ([3448cf3](https://github.com/stunor92/origo-batch/commit/3448cf381876406dbf714f6e90289b7724385d76))
+
 ## [3.0.0](https://github.com/stunor92/OriGo-Batch/compare/v2.2.3...v3.0.0) (2025-10-29)
 
 
