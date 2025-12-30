@@ -1,25 +1,26 @@
 package no.stunor.origo.batch.model
 
-import jakarta.persistence.*
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Table
 import java.sql.Timestamp
 import java.time.Instant
 import java.util.UUID
 
-@Entity
+@Table("organisation")
 data class Organisation (
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    var id: UUID? = null,
+    @Id
+    override var id: UUID? = null,
     var eventorId: String = "",
     var eventorRef: String = "",
     var name: String = "",
-    @Enumerated(EnumType.STRING) var type: OrganisationType = OrganisationType.Club,
+    var type: OrganisationType = OrganisationType.Club,
     var country: String = "",
     var email: String? = null,
     var eventorApiKey: String? = null,
     var regionId: UUID? = null,
     var contactPerson: String? = null,
     var lastUpdated: Timestamp = Timestamp.from(Instant.now())
-) {
+) : UuidEntity {
     override fun equals(other: Any?): Boolean {
         if (other is Organisation) {
             return this.eventorId == other.eventorId && (this.eventorRef == other.eventorRef)

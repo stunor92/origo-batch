@@ -1,9 +1,9 @@
 package no.stunor.origo.batch.model
 
-import jakarta.persistence.Entity
-import jakarta.persistence.Id
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Table
 
-@Entity
+@Table("eventor")
 data class Eventor (
         @Id var id: String = "",
         var name: String = "",
